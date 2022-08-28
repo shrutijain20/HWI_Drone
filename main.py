@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 model = main.deepforest()
 model.use_release()
 
-dir_path = os.path.join(os.path.dirname(__file__), "Frames1")
-# dir_path = "\Frames1"
+dir_path = os.getcwd()+"/frames"
 
 os.chdir(dir_path)
 
@@ -15,5 +14,4 @@ for file in os.listdir():
         file_path = f"{dir_path}/{file}"
         img = model.predict_image(path=file_path,return_plot=True)
         # plt.savefig(f"plot_{file}")
-        # plt.imshow(img[:,:,::-1]]
         plt.imshow(img[:,:,::-1])
